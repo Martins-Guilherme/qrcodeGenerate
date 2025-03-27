@@ -20,7 +20,7 @@ Este é um aplicativo web simples para gerar QR codes a partir de URLs.
 1.  Clone este repositório:
 
     ```bash
-    git clone [https://www.youtube.com/watch?v=L3W_n57gHpY](https://www.youtube.com/watch?v=L3W_n57gHpY)
+    git clone [https://github.com/Martins-Guilherme/qrcodeGenerate.git]
     ```
 
 2.  Instale as dependências:
