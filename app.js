@@ -42,6 +42,3 @@ app.get('/contato', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-
-// URL Git = https://github.com/Martins-Guilherme/Portfolio
-// URL mensagem = https://www.instagram.com/p/DHPN_4HNHWh/?utm_source=ig_web_copy_link
