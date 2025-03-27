@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="bt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Gerador de Qrcode dinamico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="globals.css" />
+    <title>Gerador de Qrcode || Martins</title>
+  </head>
+  <body>
+    <header>
+      <h1>Gerador de QR Code a partir de links</h1>
+    </header>
+    <section>
+      <form method="POST" action="/download">
+        <label for="link">Link:</label>
+        <textarea wrap="hard" type="text" name="link" id="link"></textarea>
+        <div class="buttons">
+          <button type="submit">Gerar e baixar QR Code</button>
+          <button type="reset">Limpar</button>
+        </div>
+      </form>
+      <a href="/sobre">Sobre</a> | <a href="/contato">Contato</a>
+    </section>
+  </body>
+</html>
