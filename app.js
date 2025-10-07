@@ -12,21 +12,32 @@ app.get("/", (req, res) => {
 });
 
 // Opção para gerar download da imagem qrcode
-app.post("/download", (req, res) => {
-  const link = req.body.link;
-  const fileName = "qrcode.png"; // Nome do arquivo para download
-
-  qrcode.toFile(fileName, link, { errorCorrectionLevel: "H" }, (err) => {
-    if (err) {
-      res.send("Erro ao gerar o QR code.");
-    } else {
-      res.download(fileName, (err) => {
-        // Deleta o arquivo após o download
-        fs.unlinkSync(fileName);
-      });
+app.post("/download", async (req, res) => {
+  try {
+    const link = req.body.link;
+    if (!link) {
+      return res.status(400).send("Campo 'link' é obrigatório.");
     }
-  });
+
+    // Gera o QR code como buffer PNG
+    const buffer = await qrcode.toBuffer(link, { errorCorrectionLevel: "H" });
+
+    // Configura cabeçalhos para download do arquivo
+    res.set({
+      "Content-Type": "image/png",
+      "Content-Disposition": 'attachment; filename="qrcode.png"',
+      "Content-Length": buffer.length,
+    });
+
+    // Envia o buffer na resposta
+    res.send(buffer);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao gerar o QR code.");
+  }
 });
+
 
 
 // Nova rota para uma página "sobre"
